@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/zlukaprapor/serverless-academy#readme",
   "dependencies": {
-    "inquirer": "^9.2.11"
+    "inquirer": "^9.2.11",
+    "node": "^18.17.1"
   }
 }

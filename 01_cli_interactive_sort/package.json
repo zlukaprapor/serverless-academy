@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/zlukaprapor/serverless-academy/issues"
   },
-  "homepage": "https://github.com/zlukaprapor/serverless-academy#readme"
+  "homepage": "https://github.com/zlukaprapor/serverless-academy#readme",
+  "dependencies": {
+    "node": "^18.17.1"
+  }
 }
