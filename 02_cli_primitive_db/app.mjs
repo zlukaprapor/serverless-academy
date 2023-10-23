@@ -23,7 +23,7 @@ async function addUser() {
     const users = loadUsers();
     const newUser = {};
 
-    const { name } = await inquirer.prompt({ type: 'input', name: 'name', message: 'Enter user name:' });
+    const { name } = await inquirer.prompt({ type: 'input', name: 'name', message: 'Enter user name To cancel press ENTER:' });
     if (!name) {
         console.log('User addition canceled.');
         await main();
@@ -50,8 +50,10 @@ async function addUser() {
 // меню програми
 async function main() {
 
+        await addUser();
 
-    await addUser();
+
+
 }
 
 

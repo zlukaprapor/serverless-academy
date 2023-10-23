@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Oleksii",
+    "gender": "Male",
+    "age": 37
+  },
+  {
+    "name": "Oksana",
+    "gender": "Female",
+    "age": 40
+  },
+  {
+    "name": "Joni",
+    "gender": "Other",
+    "age": 21
+  },
+  {
+    "name": "Vlad",
+    "gender": "Male",
+    "age": 43
+  },
+  {
+    "name": "Gerrt",
+    "gender": "Female",
+    "age": 56
+  },
+  {
+    "name": "Sania",
+    "gender": "Male",
+    "age": 43
+  },
+  {
+    "name": "Bur",
+    "gender": "Male",
+    "age": 54
+  },
+  {
+    "name": "dima",
+    "gender": "Male",
+    "age": 43
+  },
+  {
+    "name": "Ania",
+    "gender": "Female",
+    "age": 3
+  },
+  {
+    "name": "ania2",
+    "gender": "Female",
+    "age": 3
+  },
+  {
+    "name": "Ania3",
+    "gender": "Female",
+    "age": 3
+  },
+  {
+    "name": "E",
+    "gender": "Male",
+    "age": 43
+  },
+  {
+    "name": "r",
+    "gender": "Female",
+    "age": 56
+  },
+  {
+    "name": "Oleksii",
+    "gender": "Male",
+    "age": 32
+  },
+  {
+    "name": "ania",
+    "gender": "Male",
+    "age": 3
+  },
+  {
+    "name": "Oleksii",
+    "gender": "Female",
+    "age": 3
+  },
+  {
+    "name": "Oleksii",
+    "gender": "Male",
+    "age": 56
+  }
+]
