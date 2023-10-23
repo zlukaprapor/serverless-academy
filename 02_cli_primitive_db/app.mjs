@@ -18,44 +18,92 @@ function saveUsers(users) {
     fs.writeFileSync(databaseFilePath, JSON.stringify(users, null, 2));
 }
 
+function displayUsers() {
+    const users = loadUsers();
+    if (users.length > 0) {
+        console.log('List of Users:');
+        users.forEach(user => {
+            console.log(user);
+        });
+    } else {
+        console.log('No users found.');
+    }
+}
+
 //додавання користувача
 async function addUser() {
     const users = loadUsers();
     const newUser = {};
 
-    const { name } = await inquirer.prompt({ type: 'input', name: 'name', message: 'Enter user name To cancel press ENTER:' });
+    const {name} = await inquirer.prompt({
+        type: 'input',
+        name: 'name',
+        message: 'Enter user name. To cancel press ENTER:'
+    });
     if (!name) {
         console.log('User addition canceled.');
-        await main();
+        await searchUser()
         return;
     }
-
-
     newUser.name = name;
 
-    const { gender } = await inquirer.prompt({ type: 'list', name: 'gender', message: 'Choose gender:', choices: ['Male', 'Female', 'Other'] });
+    const {gender} = await inquirer.prompt({
+        type: 'list',
+        name: 'gender',
+        message: 'Choose gender:',
+        choices: ['Male', 'Female', 'Other']
+    });
     newUser.gender = gender;
 
-    const { age } = await inquirer.prompt({ type: 'number', name: 'age', message: 'Enter user age:' });
+    const {age} = await inquirer.prompt({type: 'number', name: 'age', message: 'Enter user age:'});
     newUser.age = age;
 
     users.push(newUser);
     saveUsers(users);
-    console.log('User added successfully. To cancel press ENTER');
-    addUser(); // Recursively add more users
+    console.log('User added successfully.');
+    await addUser()
+
 }
 
-//пошуку користувача за іменем
+// пошуку користувача
+async function searchUser() {
+    const users = loadUsers();
 
-// меню програми
+    const {searchChoice} = await inquirer.prompt({
+        type: 'list',
+        name: 'searchChoice',
+        message: 'Wold you to search values in DB?',
+        choices: ['Yes', 'No']
+    });
+
+    if (searchChoice === 'Yes') {
+        displayUsers();
+
+        const {searchName} = await inquirer.prompt({
+            type: 'input',
+            name: 'searchName',
+            message: 'Enter user name you wanna find in DB:'
+        });
+
+        const searchResult = users.find(user => user.name.toLowerCase() === searchName.toLowerCase());
+
+        if (searchResult) {
+            console.log(`User ${searchResult.name} found:`);
+            console.log(searchResult);
+            console.log('Goodbye!');
+        } else {
+            console.log('User not found.');
+            console.log('Goodbye!');
+        }
+    }
+}
+
 async function main() {
-
-        await addUser();
-
-
-
+    await addUser();
 }
 
-
-// Start the application
-main();
+main().then(() => {
+    console.log('Application has finished.');
+}).catch((error) => {
+    console.error('An error occurred:', error);
+});
