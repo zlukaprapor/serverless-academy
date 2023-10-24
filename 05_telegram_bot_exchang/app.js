@@ -3,6 +3,7 @@ const axios = require('axios');
 
 //const token = 'Токен вашого Telegram-бота';
 //const ApiKey = 'Токен вашого Api openweathermap.org';
+
 const lat = 50.9216;
 const lon = 34.8002;
 
