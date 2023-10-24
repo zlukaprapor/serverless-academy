@@ -1,5 +1,5 @@
 {
-  "name": "05_telegram_bot_exchang",
+  "name": "05_telegram_bot_exchange_rates",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
