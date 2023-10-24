@@ -11,7 +11,7 @@ bot.onText(/\/start/, msg => {
   const chatId = msg.chat.id;
   // Визначення програми з використанням Commander
   program
-    .name('node app.js')
+    .name('node index.js')
     .description('Telegram Console Sender')
     .version('1.0.0')
     .usage('<command>');
