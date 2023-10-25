@@ -15,7 +15,6 @@ function uniqueValues() {
     const words = readWordsFromFile(`out${i}.txt`);
     words.forEach(word => uniqueUsernames.add(word));
   }
-
   return uniqueUsernames.size;
 }
 
@@ -23,20 +22,22 @@ function uniqueValues() {
 function existInAllFiles() {
   const commonUsernames = new Set();
 
-  for (let i = 0; i < 20; i++) {
+  // Ініціалізуємо commonUsernames множиною імен з першого файлу
+  const wordsInFirstFile = readWordsFromFile('out0.txt');
+  wordsInFirstFile.forEach(word => commonUsernames.add(word));
+
+  for (let i = 1; i < 20; i++) {
     const words = readWordsFromFile(`out${i}.txt`);
 
-    // On the first file, add all words to the commonUsernames set.
-    if (i === 0) {
-      words.forEach(word => commonUsernames.add(word));
-    } else {
-      // For subsequent files, retain only the usernames that exist in the current file.
-      commonUsernames.forEach(username => {
-        if (!words.includes(username)) {
-          commonUsernames.delete(username);
-        }
-      });
-    }
+    // Створюємо множину для імен з поточного файлу
+    const currentFileUsernames = new Set(words);
+
+    // Використовуємо перетин множин для збереження тільки спільних імен
+    commonUsernames.forEach(username => {
+      if (!currentFileUsernames.has(username)) {
+        commonUsernames.delete(username);
+      }
+    });
   }
 
   return commonUsernames.size;
@@ -58,11 +59,15 @@ function existInAtleastTen() {
     });
   }
 
-  const usernamesAtLeastTen = Array.from(usernameCountMap).filter(
-    ([username, count]) => count >= 10,
-  );
+  // Фільтруємо лише імена, які зустрічаються принаймні 10 разів
+  let countAtLeastTen = 0;
+  for (const count of usernameCountMap.values()) {
+    if (count >= 10) {
+      countAtLeastTen++;
+    }
+  }
 
-  return usernamesAtLeastTen.length;
+  return countAtLeastTen;
 }
 
 // Вимірюємо продуктивність кожної функції.
