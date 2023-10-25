@@ -9,6 +9,7 @@
   "author": "Oleksii Tkachenko",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.2.11"
+    "inquirer": "^9.2.11",
+    "node": "^21.1.0"
   }
 }
