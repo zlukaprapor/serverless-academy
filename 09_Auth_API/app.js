@@ -9,10 +9,10 @@ app.use(express.json());
 
 const authSignInRoutes = require('./controllers/authSignIn');
 const authSignUpRoutes = require('./controllers/authSignUp');
-
+const authMyRoutes = require('./controllers/authMy');
 app.use(authSignInRoutes);
 app.use(authSignUpRoutes);
-
+app.use(authMyRoutes);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
