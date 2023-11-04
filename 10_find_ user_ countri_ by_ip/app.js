@@ -18,8 +18,8 @@ fs.createReadStream('IP2LOCATION-LITE-DB1.CSV')
         database.push({ from, to, codeCountry, country });
     })
     .on('end', () => {
-        console.log('CSV файл успішно оброблено.');
-        console.log('Доступні країни:');
+        console.log('CSV file processed successfully.');
+
 
     });
 
@@ -37,8 +37,7 @@ function findUserCountry(ip) {
             return entry.country;
         }
     }
-
-    return 'Невідомо';
+    return 'Unknown';
 }
 
 function ipToInt(ip) {
@@ -47,6 +46,6 @@ function ipToInt(ip) {
 }
 
 app.listen(port, () => {
-    console.log(`Сервер працює на порті ${port}`);
+    console.log(`The server is running on the port ${port}`);
 });
 
